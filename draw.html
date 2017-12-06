@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .draw{
+            width: 500px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin: 10px auto;   
+        }
+        .draw canvas.drawing{
+            background: red;
+            cursor: url(images/drawing.png),
+			        pointer;
+        }
+        .draw canvas.cleaning{
+            cursor: url(images/cleaning.png),
+			        pointer;
+        }
+        .menus > div{
+            display: flex;
+        }
+        .menus > div ul{
+            flex: 1;
+            height: 20px;
+        }
+        .menus ul li{
+            width: 20px;
+            height: 20px;
+            margin: 0 10px;
+            float: left;
+        }
+        .menus ul li.active{
+            transform: scale(1.2);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="draw">
+        <canvas width="500" height="300" id="canvas" class="drawing"></canvas>
+        <section class="menus">
+            <div>
+                <span>颜色选择</span>
+                <ul class="colors">
+                    <li style="background-color:red;"></li>
+                    <li style="background-color:blue;"></li>
+                    <li style="background-color:green;"></li>
+                    <li style="background-color:black;"></li>
+                    <li style="background-color:orange;"></li>
+                    <li style="background-color:pink;"></li>
+                </ul>
+            </div>
+            <div>
+                <span>字号选择</span>
+                <select class="sizes"></select>
+            </div>
+            <div class="clean">
+                <button class="huabi">画笔</button>
+                <button class="xpc">橡皮擦</button>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        var canvas = $('#canvas')[0],
+            ctx = canvas.getContext("2d"),
+            x = 0, y = 0;
+        
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        
+        //点击选择颜色
+        $('.colors li').click(function(){
+            ctx.strokeStyle = $(this).css("background-color");
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+    
+        //生成字号列表
+        for(var i = 10; i <= 100; i+=10){
+            $("<option>")
+                .val(i)
+                .html(i)
+                .appendTo($(".sizes"));
+        }
+        ctx.lineWidth = 10;
+        
+        //选择字号
+        $(".sizes").change(function(){
+            ctx.lineWidth = $(this).val();
+        })
+        
+        //画笔
+        $(".huabi").click(function(){
+            ctx.globalCompositeOperation = "source-over";
+        })
+        
+        //橡皮擦
+        $(".xpc").click(function(){
+//            ctx.strokeStyle = "#ccc";
+            ctx.globalCompositeOperation = "destination-out";
+        })
+        
+        //判断点下的状态
+        var touched = false;
+        
+        canvas.onmousedown = function(event){
+            x = event.pageX - canvas.offsetLeft;
+            y = event.pageY - canvas.offsetTop;
+            
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            touched = true;
+        }
+        canvas.onmousemove = function(e){
+            if(touched){
+                x = event.pageX - canvas.offsetLeft;
+                y = event.pageY - canvas.offsetTop;
+
+                ctx.lineTo(x, y);
+                ctx.stroke();
+            }
+        }
+        canvas.onmouseup = function(e){
+            touched = false;
+        }
+        
+    </script>
+</body>
+</html>
