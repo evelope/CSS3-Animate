@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1 2 3 4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "楷体";
+            -webkit-text-stroke: 2px skyblue;
+            text-shadow: 10px 10px 10px #000;
+        }
+
+        #box {
+            width: 400px;
+            height: 400px;
+            margin: 50px auto;
+            border: 5px solid red;
+            position: relative;
+            border-radius: 5%;
+            overflow: hidden;
+            /* background: linear-gradient(to right, red, green) !important;
+            -webkit-background-clip:text;  */
+        }
+
+        #box div {
+            font-size: 150px;
+            line-height: 200px;
+            text-align: center;
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            color: red;
+            float: left;
+        }
+
+        #box div div {
+            width: 200px;
+            height: 200px;
+            background: red;
+            color: white;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #po1,
+        #po2,
+        #po3,
+        #po4 {
+            overflow: hidden;
+            position: absolute;
+            width: 0 !important;
+            height: 0 !important;
+        }
+        /* 调整速率 */
+
+        #po1 {
+            animation: g1 2s infinite linear;
+        }
+
+        #po2 {
+            animation: g2 2s 0.5s infinite linear;
+        }
+
+        #po4 {
+            animation: g1 2s 1s infinite linear;
+        }
+
+        #po3 {
+            animation: g2 2s 1.5s infinite linear;
+        }
+
+        #po1 div {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        #po2 div {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        #po3 div {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        #po4 div {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #po4 {
+            left: 200px;
+            top: 200px;
+        }
+
+        #po3 {
+            right: 200px;
+            top: 200px;
+        }
+
+        #po2 {
+            left: 200px;
+            bottom: 200px;
+        }
+
+        #po1 {
+            right: 200px;
+            bottom: 200px;
+        }
+
+        @keyframes g1 {
+            0% {
+                height: 0;
+                width: 200px;
+            }
+            25% {
+                height: 200px;
+                width: 200px;
+            }
+            50% {
+                height: 200px;
+                width: 0;
+            }
+            100% {
+                height: 200px;
+                width: 0;
+            }
+        }
+
+        @keyframes g2 {
+            0% {
+                width: 0;
+                height: 200px;
+            }
+            25% {
+                height: 200px;
+                width: 200px;
+            }
+            50% {
+                width: 200px;
+                height: 0;
+            }
+            100% {
+                width: 200px;
+                height: 0;
+            }
+        }
+
+        .b22 {
+            position: relative;
+            width: 200px;
+            height: 20vh;
+            background: pink
+        }
+
+        .b22 div {
+            position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div>徇</div>
+        <div>私</div>
+        <div>舞</div>
+        <div>弊</div>
+        <div id="po1">
+            <div>徇</div>
+        </div>
+        <div id="po2">
+            <div>私</div>
+        </div>
+        <div id="po3">
+            <div>舞</div>
+        </div>
+        <div id="po4">
+            <div>弊</div>
+        </div>
+    </div>
+</body>
+
+</html>
