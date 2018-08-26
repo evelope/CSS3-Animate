@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D 盒子旋转</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            perspective: 1200px;
+            background: black;
+        }
+        #box {
+            transform-style: preserve-3d;
+            margin: 180px auto;
+            margin-bottom: 0;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            animation: g 5s infinite linear;
+            text-align: center;
+            line-height: 200px;
+            color: white;
+            font-size: 100px;
+            text-shadow: 0 0 10px white;
+        }
+        span {
+            transform: translateZ(40px) rotateZ(0);
+            position: absolute;
+            left: 25%;
+            animation: g2 3s infinite linear;
+        }
+        #q {
+            width: 200px;
+            height: 200px;
+            /* background: green; */
+            transform: translateZ(100px);
+            position: absolute;
+        }
+        #h {
+            width: 200px;
+            height: 200px;
+            /* background: pink; */
+            transform: translateZ(-100px) rotateX(180deg);
+            position: absolute;
+        }
+        #s {
+            width: 200px;
+            height: 200px;
+            /* background: skyblue; */
+            transform: translateY(-100px) rotateX(90deg);
+            position: absolute;
+        }
+        #x {
+            width: 200px;
+            height: 200px;
+            /* background: yellow; */
+            transform: translateY(100px) rotateX(-90deg);
+            position: absolute;
+        }
+        #z {
+            width: 200px;
+            height: 200px;
+            /* background: blue; */
+            transform: translateX(-100px) rotateY(-90deg);
+            position: absolute;
+        }
+        #y {
+            width: 200px;
+            height: 200px;
+            /* background: red; */
+            transform: translateX(100px) rotateY(90deg);
+            position: absolute;
+        }
+        @keyframes g {
+            33% {
+                transform: rotateY(120deg) rotateZ(120deg);
+            }
+            66% {
+                transform: rotateY(240deg) rotateZ(240deg);
+            }
+            100% {
+                transform: rotateY(360deg) rotateZ(360deg);
+            }
+        }
+        @keyframes g2 {
+            100% {
+                transform: translateZ(40px) rotateZ(-720deg);
+            }
+        }
+        @keyframes g3 {
+            50% {
+                box-shadow: 0 0 50px #fff inset, 0 0 50px #fff;
+            }
+        }
+        div:not(#box) {
+            animation: g3 5s infinite;
+        }
+        #box div {
+            transform-style: preserve-3d;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="q"><span>凝</span></div>
+        <div id="h"><span>寒</span></div>
+        <div id="s"><span>芷</span></div>
+        <div id="x"><span>蕊</span></div>
+        <div id="z"><span>涵</span></div>
+        <div id="y"><span>傲</span></div>
+    </div>
+</body>
+</html>
