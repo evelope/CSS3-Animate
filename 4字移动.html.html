@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>1 2 3 4</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      position: relative;
+      font-size: 150px;
+      width: 400px;
+      height: 400px;
+      margin: 50px auto;
+      border: 5px solid #ffb787;
+      border-radius: 5%;
+      overflow: hidden;
+    }
+
+    #box .font {
+      line-height: 200px;
+      text-align: center;
+      width: 200px;
+      height: 200px;
+      color: red;
+      float: left;
+    }
+
+    #box .bg {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: red;
+      animation: bg-move 3s infinite linear;
+    }
+
+    @keyframes bg-move {
+      0% {
+        transform: translateX(0) translateY(0)
+      }
+
+      25% {
+        transform: translateX(200px)
+      }
+
+      50% {
+        transform: translateX(200px) translateY(200px)
+      }
+
+      75% {
+        transform: translateX(0) translateY(200px)
+      }
+
+      100% {
+        transform: translateX(0) translateY(0)
+      }
+    }
+
+    .po1,
+    .po2,
+    .po3,
+    .po4 {
+      overflow: hidden;
+      position: absolute;
+      background: red;
+      width: 0;
+      height: 0;
+    }
+
+    .po1 {
+      right: 200px;
+      bottom: 200px;
+      animation: w-h 2s 0.5s infinite linear;
+    }
+
+    .po2 {
+      left: 200px;
+      bottom: 200px;
+      animation: w-h 2s infinite linear reverse;
+    }
+
+    .po3 {
+      right: 200px;
+      top: 200px;
+      animation: w-h 2s 1s infinite linear reverse;
+    }
+
+    .po4 {
+      left: 200px;
+      top: 200px;
+      animation: w-h 2s 1.5s infinite linear;
+    }
+
+    .po1 div,
+    .po2 div,
+    .po3 div,
+    .po4 div {
+      position: absolute;
+      width: 200px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .po1 div {
+      bottom: 0;
+      right: 0;
+    }
+
+    .po2 div {
+      bottom: 0;
+      left: 0;
+    }
+
+    .po3 div {
+      right: 0;
+      top: 0;
+    }
+
+    .po4 div {
+      top: 0;
+      left: 0;
+    }
+
+
+
+    @keyframes w-h {
+      0% {
+        height: 0;
+        width: 200px;
+      }
+
+      25% {
+        height: 200px;
+        width: 200px;
+      }
+
+      50% {
+        height: 200px;
+        width: 0;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div class="font">贪</div>
+    <div class="font">玩</div>
+    <div class="font">蓝</div>
+    <div class="font">月</div>
+    <div class="po1">
+      <div>贪</div>
+    </div>
+    <div class="po2">
+      <div>玩</div>
+    </div>
+    <div class="po3">
+      <div>蓝</div>
+    </div>
+    <div class="po4">
+      <div>月</div>
+    </div>
+  </div>
+</body>
+
+</html>
