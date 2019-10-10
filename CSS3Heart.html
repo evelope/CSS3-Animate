@@ -51,8 +51,13 @@
 </head>
 
 <body>
+    <button onclick="winrep()">百度</button>
     <div id="box"></div>
     <script>
+        function winrep(){
+
+            window.location.replace("https://www.baidu.com&dd_enable_replace=true");
+        }
         for (var i = 0; i < 36; i++) {
             var he = document.createElement('div');
             var _he = document.createElement('div');
