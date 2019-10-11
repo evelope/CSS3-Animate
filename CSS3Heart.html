@@ -51,12 +51,18 @@
 </head>
 
 <body>
-    <button onclick="winrep()">百度</button>
+    <button onclick="winrep('href')">href sso</button>
+    <br/>
+    <button onclick="winrep('rep')">rep sso</button>
     <div id="box"></div>
     <script>
-        function winrep(){
-
-            window.location.replace("https://www.baidu.com/?dd_enable_replace=true");
+        function winrep(type){
+            if(type=='href'){
+                window.location.href = "https://service.100tal.com/sso/login/756694246";
+            }else {
+                window.location.replace("https://service.100tal.com/sso/login/756694246");
+            }
+            
         }
         for (var i = 0; i < 36; i++) {
             var he = document.createElement('div');
