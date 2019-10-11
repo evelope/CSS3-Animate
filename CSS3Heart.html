@@ -58,9 +58,21 @@
     <script>
         function winrep(type){
             if(type=='href'){
-                window.location.href = "https://service.100tal.com/sso/login/756694246";
+                window.location.href = "https://service.100tal.com/sso/login/756694246"+"?wid=" +
+                    123345 +
+                    "&salt_value=" +
+                    23543346456 +
+                    "&dd_enable_replace=true"+
+                    "&dd_progress=false"+
+                    "&first_weekly=1";
             }else {
-                window.location.replace("https://service.100tal.com/sso/login/756694246");
+                window.location.replace("https://service.100tal.com/sso/login/756694246"+"?wid=" +
+                    123345 +
+                    "&salt_value=" +
+                    23543346456 +
+                    "&dd_enable_replace=true"+
+                    "&dd_progress=false"+
+                    "&first_weekly=1");
             }
             
         }
