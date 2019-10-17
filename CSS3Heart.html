@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no" />
     <style>
         body {
             perspective: 600px;
@@ -51,31 +57,20 @@
 </head>
 
 <body>
-    <button onclick="winrep('href')">href sso</button>
+    <button onclick="winrep('href')">href</button>
     <br/>
-    <button onclick="winrep('rep')">rep sso</button>
+    <button onclick="winrep('rep')">replace</button>
     <div id="box"></div>
     <script>
         function winrep(type){
             if(type=='href'){
-                window.location.href = "https://service.100tal.com/sso/login/756694246"+"?wid=" +
-                    123345 +
-                    "&salt_value=" +
-                    23543346456 +
-                    "&dd_enable_replace=true"+
-                    "&dd_progress=false"+
-                    "&first_weekly=1";
+                window.location.href = "https://www.baidu.com";
             }else {
-                window.location.replace("https://service.100tal.com/sso/login/756694246"+"?wid=" +
-                    123345 +
-                    "&salt_value=" +
-                    23543346456 +
-                    "&dd_enable_replace=true"+
-                    "&dd_progress=false"+
-                    "&first_weekly=1");
+                window.location.replace("https://www.baidu.com");
             }
             
         }
+        /*
         for (var i = 0; i < 36; i++) {
             var he = document.createElement('div');
             var _he = document.createElement('div');
@@ -94,6 +89,7 @@
                 }`;
         }
         document.head.appendChild(st);
+        */
     </script>
 </body>
 
