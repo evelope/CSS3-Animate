@@ -65,8 +65,10 @@
         function winrep(type){
             if(type=='href'){
                 window.location.href = "https://www.baidu.com?dd_enable_replace=true";
+                alert('href');
             }else {
                 window.location.replace("https://www.baidu.com?dd_enable_replace=true");
+                alert('replace');
             }
             
         }
