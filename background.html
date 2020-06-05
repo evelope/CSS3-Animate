@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bg</title>
+    <style>
+        /* // 右图的样式代码 */
+        .card {
+            width: 192px;
+            height: 192px;
+            /* // 这里使用了三层背景渐变，两层圆锥渐变和一层辐射渐变 */
+            background-image:
+                repeating-conic-gradient(red 50%, #E1F5C4 60%),
+                repeating-conic-gradient(red 50%, #E1F5C4 60%),
+                radial-gradient(gold 0%, gold 35%,
+                    red 35%, red 40%,
+                    orangered 40%, orangered 50%,
+                    gold 50%, gold 60%,
+                    yellowgreen 60%, yellowgreen 70%,
+                    skyblue 70%, skyblue 80%,
+                    steelblue 80%, steelblue 90%,
+                    violet 90%);
+
+            /* // 对每一层被渐变分别设置混合模式 */
+            background-blend-mode:
+                lighten,
+                overlay,
+                lighten;
+
+            /* // 对每一层被渐变分别设置背景大小（40px 是因为正好能被 200px 的盒子整除） */
+            background-size:
+                40px 40px,
+                6em 6em,
+                8em 8em;
+            background-position: 50% 50%;
+            transition: .45s ease-in;
+            cursor: pointer;
+
+            /* // 鼠标悬浮时，变换渐变大小 */
+            /*  */
+        }
+
+        .card:hover {
+            background-size:
+                40px 40px,
+                1em 1em,
+                12em 12em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card"></div>
+</body>
+
+</html>
