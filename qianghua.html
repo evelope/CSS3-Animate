@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>强化</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none !important;
+      }
+
+      input::-webkit-outer-spin-button {
+        -webkit-appearance: none !important;
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="https://image-pub.guazistatic.com/qnbdp16931101967da4b305fda94c069a8127d96fea302d1066.jpg" alt="" style="width: 100%" />
+    <div
+      id="box"
+      style="
+        pointer-events: none;
+        position: absolute;
+        background: #000;
+        color: #fff;
+        width: 4vw;
+        height: 3vw;
+        left: 83.8vw;
+        top: 6.3vw;
+        font-size: 2vw;
+        user-select: none;
+      "
+    >
+      +10
+    </div>
+
+    <div
+      id="qianghua"
+      style="
+        position: absolute;
+        width: 20vw;
+        height: 6vw;
+        left: 72.8vw;
+        top: 37.3vw;
+        font-size: 2vw;
+        cursor: pointer;
+      "
+    ></div>
+
+    <input
+      id="gailv"
+      type="number"
+      value="20"
+      style="
+        position: absolute;
+        background: #000;
+        color: #fff;
+        width: 3.3vw;
+        height: 2vw;
+        left: 70.8vw;
+        top: 35vw;
+        font-size: 2vw;
+        user-select: none;
+      "
+    />
+
+    <button
+      id="chongzhi"
+      type="button"
+      value="20"
+      style="
+        position: absolute;
+        cursor: pointer;
+        background: #000;
+        color: #fff;
+        width: 7.3vw;
+        height: 3vw;
+        left: 58.8vw;
+        top: 6vw;
+        font-size: 1.6vw;
+        user-select: none;
+      "
+    >
+      重置
+    </button>
+
+    <script>
+      var zhi = localStorage.getItem("zhi") || 10;
+      box.innerHTML = "+" + zhi;
+
+      var gai = localStorage.getItem("gai") || 20;
+      gailv.value = gai;
+
+      function probability(p) {
+        return Math.random() <= p / 100;
+      }
+
+      qianghua.onclick = function () {
+        if (probability(+gai)) {
+          console.log("111");
+          var z = +zhi + 1;
+          console.log("333", z);
+          if (z > 25) return;
+          box.innerHTML = "+" + z;
+        } else {
+          var z = +zhi - 1;
+          console.log("222", z);
+          if (z < 10) return;
+          box.innerHTML = "+" + z;
+        }
+        zhi = z;
+        localStorage.setItem("zhi", z);
+      };
+
+      gailv.onchange = function (e) {
+        gailv.value = +e.target.value;
+        gai = +e.target.value;
+        localStorage.setItem("gai", +e.target.value);
+      };
+
+      chongzhi.onclick = function () {
+        zhi = 10;
+        localStorage.setItem("zhi", 10);
+        box.innerHTML = "+10";
+      };
+    </script>
+  </body>
+</html>
